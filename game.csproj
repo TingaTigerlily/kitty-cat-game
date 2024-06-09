@@ -18,6 +18,7 @@
     <None Remove="kitty-cat.png" />
     <None Remove="script.js" />
     <None Remove="styles.css" />
+    <None Remove="index.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="kitty-cat.png">
@@ -29,6 +30,10 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="styles.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="index.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
