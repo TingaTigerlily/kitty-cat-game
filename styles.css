@@ -1,4 +1,13 @@
-﻿body {
+﻿#cat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('kitty-cat.png'); /* Ensure the path is correct */
+    background-size: cover;
+    cursor: pointer;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,15 +23,6 @@
     border: 2px solid #ccc;
     background-color: #fff;
     overflow: hidden;
-}
-
-#cat {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('kitty-cat.png'); /* Ensure the path is correct */
-    background-size: cover;
-    cursor: pointer;
 }
 
 #message {

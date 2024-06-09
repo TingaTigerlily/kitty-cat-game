@@ -14,4 +14,23 @@
     <Content Remove="wwwroot\styles.css" />
     <Content Remove="wwwroot\script.js" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="kitty-cat.png" />
+    <None Remove="script.js" />
+    <None Remove="styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="kitty-cat.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="script.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="styles.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
