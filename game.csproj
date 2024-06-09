@@ -8,4 +8,10 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <Content Remove="wwwroot\kitty-cat.png" />
+    <Content Remove="wwwroot\index.html" />
+    <Content Remove="wwwroot\styles.css" />
+    <Content Remove="wwwroot\script.js" />
+  </ItemGroup>
 </Project>
