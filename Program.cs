@@ -9,12 +9,17 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    ServeUnknownFileTypes = true, // Allow serving files without a known content type
+    DefaultContentType = "text/html" // Default to serving HTML files
+});
+app.UseDefaultFiles(); // Enable default file mapping (index.html)
+app.UseStaticFiles();  // Enable serving static files
 
 app.UseRouting();
 
@@ -22,5 +27,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.Run();
+// Map a default route to serve index.html
+app.MapFallbackToFile("index.html");
 
+app.Run();

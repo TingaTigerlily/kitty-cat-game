@@ -1,0 +1,50 @@
+﻿body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#cat {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('kitty-cat.png'); /* Use the new image here */
+    background-size: cover;
+    cursor: pointer;
+}
+
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: red;
+    display: none;
+}
+
+.flash {
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
