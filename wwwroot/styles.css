@@ -20,7 +20,7 @@
     position: absolute;
     width: 50px;
     height: 50px;
-    background-image: url('kitty-cat.png'); /* Use the new image here */
+    background-image: url('kitty-cat.png'); /* Ensure the path is correct */
     background-size: cover;
     cursor: pointer;
 }
