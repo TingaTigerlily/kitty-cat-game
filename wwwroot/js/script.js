@@ -50,7 +50,7 @@ function updateTimer() {
     if (timeLeft <= 0) {
         clearInterval(timer);
         clearInterval(moveCatInterval);
-        displayMessage('Game Over!');
+        alert('Game Over!');
         cat.style.display = 'none';  // Hide the cat when the game is over
     }
 }
@@ -67,10 +67,6 @@ function moveCat() {
     setTimeout(() => {
         cat.style.display = 'none';
     }, 1000); // Show the cat for 1 second
-}
-
-function displayMessage(message) {
-    alert(message);
 }
 
 resetGame();

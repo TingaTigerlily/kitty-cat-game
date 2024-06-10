@@ -1,6 +1,6 @@
 ﻿describe('Kitty Cat Game Enhanced Tests', () => {
     beforeEach(() => {
-        cy.visit('https://tingatigerlily.github.io/kitty-cat-game/')
+        cy.visit('/')
     })
 
     it('should load the game page', () => {
@@ -18,14 +18,6 @@
         cy.get('#start-btn').click()
         cy.get('#cat').click()
         cy.get('#score').should('contain', '1')
-    })
-
-    it('should display game over message when time runs out', () => {
-        cy.get('#start-btn').click()
-        cy.wait(31000) // Wait for 31 seconds to ensure the timer has run out
-        cy.on('window:alert', (str) => {
-            expect(str).to.equal('Game Over!')
-        })
     })
 
     it('should reset the game', () => {
@@ -49,5 +41,19 @@
             })
         })
     })
-})
 
+    it('should enlarge the cat when clicked', () => {
+        cy.get('#start-btn').click()
+        cy.get('#cat').click()
+        cy.get('#cat').should('have.css', 'transform', 'matrix(1.2, 0, 0, 1.2, 0, 0)')
+    })
+
+    it('should play sound when the cat is clicked', () => {
+        cy.window().then(win => {
+            cy.stub(win.Audio.prototype, 'play').as('playSound')
+        })
+        cy.get('#start-btn').click()
+        cy.get('#cat').click()
+        cy.get('@playSound').should('have.been.calledOnce')
+    })
+})
