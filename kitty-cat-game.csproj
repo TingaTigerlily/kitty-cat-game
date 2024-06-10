@@ -16,10 +16,14 @@
   <ItemGroup>
     <None Remove="cypress\" />
     <None Remove="cypress\integration\" />
+    <None Remove="build.sh" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="cypress\" />
     <Folder Include="cypress\integration\" />
     <Folder Include="wwwroot\sounds\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="build.sh" />
   </ItemGroup>
 </Project>
