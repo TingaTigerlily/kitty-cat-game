@@ -1,6 +1,11 @@
 ﻿using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorPages();
+builder.Services.AddAuthorization(); // Add this line
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -11,7 +16,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Configure static files to serve from root directory
+// Configure static files to serve from the wwwroot directory
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
@@ -21,8 +26,9 @@ app.UseStaticFiles(new StaticFileOptions
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthorization(); // Add this line
 
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
