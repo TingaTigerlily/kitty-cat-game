@@ -19,6 +19,8 @@
     <None Remove="script.js" />
     <None Remove="styles.css" />
     <None Remove="index.html" />
+    <None Remove="cypress\" />
+    <None Remove="cypress\integration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="kitty-cat.png">
@@ -37,5 +39,9 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="cypress\" />
+    <Folder Include="cypress\integration\" />
   </ItemGroup>
 </Project>
