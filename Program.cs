@@ -1,11 +1,8 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.Extensions.FileProviders;
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-
+var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -13,21 +10,23 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Configure static files to serve from root directory
 app.UseStaticFiles(new StaticFileOptions
 {
-    ServeUnknownFileTypes = true, // Allow serving files without a known content type
-    DefaultContentType = "text/html" // Default to serving HTML files
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(app.Environment.ContentRootPath, "wwwroot")),
+    RequestPath = ""
 });
-app.UseDefaultFiles(); // Enable default file mapping (index.html)
-app.UseStaticFiles();  // Enable serving static files
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Map a default route to serve index.html
-app.MapFallbackToFile("index.html");
+app.MapFallbackToFile("index.html"); // Ensures index.html is served
 
 app.Run();

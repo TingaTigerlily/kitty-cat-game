@@ -48,8 +48,9 @@ function updateTimer() {
 }
 
 function moveCat() {
-    const x = Math.random() * (document.querySelector('.game-container').clientWidth - 100);
-    const y = Math.random() * (document.querySelector('.game-container').clientHeight - 100);
+    const gameContainer = document.querySelector('.game-container');
+    const x = Math.random() * (gameContainer.clientWidth - 100);
+    const y = Math.random() * (gameContainer.clientHeight - 100);
     cat.style.left = `${x}px`;
     cat.style.top = `${y}px`;
     cat.style.display = 'block';
