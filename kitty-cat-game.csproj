@@ -11,6 +11,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\styles.css" />
     <Content Remove="wwwroot\script.js" />
+    <Content Remove="wwwroot\sounds\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="cypress\" />
@@ -19,5 +20,6 @@
   <ItemGroup>
     <Folder Include="cypress\" />
     <Folder Include="cypress\integration\" />
+    <Folder Include="wwwroot\sounds\" />
   </ItemGroup>
 </Project>
