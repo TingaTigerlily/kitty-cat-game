@@ -43,6 +43,7 @@ function updateTimer() {
     if (timeLeft <= 0) {
         clearInterval(timer);
         displayMessage('Game Over!');
+        cat.style.display = 'none';  // Hide the cat when the game is over
     }
 }
 
